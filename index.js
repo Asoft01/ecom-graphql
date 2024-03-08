@@ -25,7 +25,7 @@ const resolvers = {
         products: () => {
             return [{
                name : "Bike", 
-               description: "Montain Bike", 
+               description: "Montain Bike",
                quantity: 20, 
                price: 999.99, 
                onSale: false

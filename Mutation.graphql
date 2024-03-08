@@ -1,0 +1,5 @@
+extend type Mutation {
+  addBookcase(companyId: ID!, data: AddBookcaseInput!): Bookcase!
+  updateBookcase(id: ID!, name: String!): Bookcase!
+  deleteBookcase(id: ID!): ID!
+}
