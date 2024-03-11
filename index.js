@@ -26,7 +26,7 @@ const resolvers = {
             return [{
                name : "Bike", 
                description: "Montain Bike",
-               quantity: 20, 
+               quantity: 20,  
                price: 999.99, 
                onSale: false
             }]

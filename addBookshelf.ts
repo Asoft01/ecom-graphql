@@ -1,19 +1,19 @@
 // import {selectionHelper} from '@/graphql/v1/helpers';
 // import {Context} from '@/graphql/v1';
-// import {NotFoundError} from '@/src/errors';
+// import { NotFoundError } from '@/src/errors';
 
-// const updateBookcase = async (
+// const addBookshelf = async (
 //   parent: any,
 //   args: any,
 //   context: Context,
 //   info: any,
 // ) => {
-//   const {id, data} = args;
-
-//   const userId = context.userId!;
+//   const {bookcaseId, data} = args;
+//   // console.log("user2", context.userId);
+//   const id = context.userId!;
 //   const user = await context.prisma.user.findUnique({
 //     where: {
-//       id: userId
+//       id
 //     },
 //     select: { roles: { include: { role: true } } }
 //   });
@@ -22,27 +22,23 @@
 //   const role = user?.roles[0].role.name;
 
 //   const selection = selectionHelper.extract(info.fieldNodes[0].selectionSet);
-//   if (role === "Pack Manager" || role === "Global Administrator") {
-//     const bookcase = await context.prisma.bookcase.update({
-//       where: {id},
+//   if (role === "Pack Manager" || role === "Global Administrator"){
+//     const bookshelf = await context.prisma.bookshelf.create({
 //       data: {
 //         ...data,
-//         updatedAt: new Date().toISOString(),
-//         updatedByUserId: context.userId,
+//         createdAt: new Date().toISOString(),
+//         createdByUserId: context.userId,
+//         bookcaseId,
 //       },
 //       select: {
 //         ...selection,
 //       },
 //     });
 
-//     if (!bookcase) {
-//       throw new NotFoundError('Bookcase not found');
-//     }
-
-//     return bookcase;
-//   }else {
+//     return bookshelf;
+//   }else{
 //     throw new NotFoundError('You are not permitted to make this request');
 //   }
 // };
 
-// export default updateBookcase;
+// export default addBookshelf;

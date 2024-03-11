@@ -2,7 +2,7 @@
 // import {Context} from '@/graphql/v1';
 // import {NotFoundError} from '@/src/errors';
 
-// const updateBookcase = async (
+// const updateBookshelf = async (
 //   parent: any,
 //   args: any,
 //   context: Context,
@@ -23,7 +23,8 @@
 
 //   const selection = selectionHelper.extract(info.fieldNodes[0].selectionSet);
 //   if (role === "Pack Manager" || role === "Global Administrator") {
-//     const bookcase = await context.prisma.bookcase.update({
+  
+//     const bookshelf = await context.prisma.bookshelf.update({
 //       where: {id},
 //       data: {
 //         ...data,
@@ -35,14 +36,14 @@
 //       },
 //     });
 
-//     if (!bookcase) {
-//       throw new NotFoundError('Bookcase not found');
+//     if (!bookshelf) {
+//       throw new NotFoundError('Bookshelf not found');
 //     }
 
-//     return bookcase;
-//   }else {
+//     return bookshelf;
+//   }else{
 //     throw new NotFoundError('You are not permitted to make this request');
 //   }
 // };
 
-// export default updateBookcase;
+// export default updateBookshelf;
