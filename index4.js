@@ -284,38 +284,32 @@ const typeDefs = gql`
     type Query {
         hello: String
         products: [Product!]!
-        product(id: ID!): Product
     }
 
     type Product {
         name: String!
         description: String!
         quantity: Int!
-        image: String!
         price: Float!
         onSale: Boolean!
     }
 `;
 
 const resolvers = {
-    // Query: {
-    //     hello: () => {
-    //         return "Hello"; 
-    //     }, 
-    //     products: () => {
-    //         return products;
-    //     }
-    // }
-
     Query: {
-        hello: () => "Hello", 
-        products: () => products, 
-        product: (parent, args, context) => {
-            // console.log(args);
-            const productId = args.id;
-            const product = products.find(product => product.id === productId); 
-            if(!product) return null;
-            return product;
+        hello: () => {
+            // return ["Hello", null, "Friend"];
+            // return null;
+            return "Hello"; 
+        }, 
+        products: () => {
+            return [{
+               name : "Bike", 
+               description: "Montain Bike",
+               quantity: 20,  
+               price: 999.99, 
+               onSale: false
+            }]
         }
     }
 }
