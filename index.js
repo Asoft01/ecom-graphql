@@ -285,15 +285,22 @@ const typeDefs = gql`
         hello: String
         products: [Product!]!
         product(id: ID!): Product
+        categories: [Category!]!
+        # [Category]! means it should not return a null value, rather return an empty array
     }
 
     type Product {
+        id: ID!
         name: String!
         description: String!
         quantity: Int!
         image: String!
         price: Float!
         onSale: Boolean!
+    }
+    type Category {
+        id: ID!
+        name: String!
     }
 `;
 
