@@ -302,6 +302,7 @@ const typeDefs = gql`
     type Category {
         id: ID!
         name: String!
+        products: [Product!]!
     }
 `;
 
@@ -320,12 +321,20 @@ const resolvers = {
         products: () => products, 
         product: (parent, args, context) => {
             // console.log(args);
-            const productId = args.id;
-            const product = products.find(product => product.id === productId); 
-            if(!product) return null;
-            return product;
+            // const productId = args.id;
+            // const product = products.find(product => product.id === productId); 
+            // if(!product) return null;
+            // return product;
+
+            // refactoring
+            const { id } = args;
+            return products.find((product) => product.id === id);
         }, 
-        categories: () => categories
+        categories: (parent, args, context) => categories, 
+        category: (parent, args, context) => {
+            const { id } = args;
+            return categories.find((category) => category.id === id); 
+        }
     }
 }
 
