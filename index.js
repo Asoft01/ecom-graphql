@@ -286,6 +286,7 @@ const typeDefs = gql`
         products: [Product!]!
         product(id: ID!): Product
         categories: [Category!]!
+        category(id: ID!): Category
         # [Category]! means it should not return a null value, rather return an empty array
     }
 
@@ -323,7 +324,8 @@ const resolvers = {
             const product = products.find(product => product.id === productId); 
             if(!product) return null;
             return product;
-        }
+        }, 
+        categories: () => categories
     }
 }
 
