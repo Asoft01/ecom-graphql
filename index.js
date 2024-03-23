@@ -98,14 +98,17 @@ const products = [
     {
       id: "c01b1ff4-f894-4ef2-b27a-22aacc2fca70",
       name: "Kitchen",
+      productId: "47bf3941-9c8b-42c0-9c72-7f3985492a5b"
     },
     {
       id: "34115aac-0ff5-4859-8f43-10e8db23602b",
       name: "Garden",
+      productId: "b553085a-a7e0-4c9b-8a12-f971919c3683"
     },
     {
       id: "d914aec0-25b2-4103-9ed8-225d39018d1d",
       name: "Sports",
+      productId: "b553085a-a7e0-4c9b-8a12-f971919c3683"
     },
   ];
   
@@ -307,6 +310,8 @@ const typeDefs = gql`
         image: String!
         price: Float!
         onSale: Boolean!
+        # categories: [Category!]!
+        category: Category
     }
     type Category {
         id: ID!
@@ -355,6 +360,20 @@ const resolvers = {
             const categoryId = parent.id;
             return products.filter((product) => product.categoryId === categoryId);
         } 
+    }, 
+    // Product: {
+    //   categories: (parent, args, context) => {
+    //     console.log(parent);
+    //     const productId = parent.id; 
+    //     return categories.filter((category) => category.productId === productId);
+    //   }
+    // }
+    // this is a wrong logic //////// the turorial master made a mistake 
+    Product: {
+      category: (parent, args, context) => {
+        const categoryId = parent.categoryId; 
+        return categories.find((category) => category.id === categoryId);
+      }
     }
 }
 
