@@ -342,7 +342,7 @@ const resolvers = {
         categories: (parent, args, context) => categories, 
         category: (parent, args, context) => {
             const { id } = args;
-            return categories.find((category) => category.id === id); 
+            return categories.find((category) => category.id === id);
         }
     }, 
     Category: {
