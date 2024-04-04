@@ -4,4 +4,4 @@ exports.Product = {
       const categoryId = parent.categoryId; 
       return categories.find((category) => category.id === categoryId);
     }
-  }
+}
