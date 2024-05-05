@@ -10,6 +10,11 @@ const server = new ApolloServer({
       Query, 
       Category, 
       Product
+    }, 
+    context: {
+      sayHello: () => {
+        console.log("Hello My Friend");
+      }
     }
 }); 
 
