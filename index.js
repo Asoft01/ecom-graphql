@@ -3,6 +3,7 @@ const { typeDefs }  = require("./schema");
 const { Query } = require("./resolvers/Query");
 const { Category } = require("./resolvers/Category");
 const { Product } = require("./resolvers/Product");
+const { categories, products } = require("./db"); 
 
 const server = new ApolloServer({
     typeDefs, 
@@ -12,9 +13,11 @@ const server = new ApolloServer({
       Product
     }, 
     context: {
-      sayHello: () => {
-        console.log("Hello My Friend");
-      }
+      // sayHello: () => {
+      //   console.log("Hello My Friend");
+      // }
+      categories, 
+      products
     }
 }); 
 
