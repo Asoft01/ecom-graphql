@@ -21,5 +21,5 @@ exports.Product = {
 // the id is the parent id which is id of the product in this case
   reviews: ({ id }, args, { reviews }) => {
     return reviews.filter((review)  => review.productId === id);
-  } 
+  }
 }
