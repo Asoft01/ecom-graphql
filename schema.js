@@ -19,10 +19,19 @@ exports.typeDefs = gql`
         onSale: Boolean!
         # categories: [Category!]!
         category: Category
+        reviews: [Review!]!
     }
     type Category {
         id: ID!
         name: String!
         products: [Product!]!
+    }
+
+    type Review {
+        id: ID!
+        date: String!
+        title: String!
+        Comment: String!
+        Rating: Int!
     }
 `;
